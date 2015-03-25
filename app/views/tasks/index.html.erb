@@ -1,3 +1,30 @@
+
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+	<%= link_to 'New Task', new_task_path, class:  "btn btn-primary"%>	
+  <%= link_to 'New Project', new_task_path, class:  "btn btn-primary"%>
+  <%= link_to 'New Team', new_task_path, class:  "btn btn-primary"%>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      Assignee
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+            <li><a href="#">All Tasks</a></li>
+            <li><a href="#">My Tasks</a></li>
+    </ul>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      Team
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">All Teams</a></li>
+    </ul>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-md-4"><h1 class="text-center">Todo</h1>
     <%= render @to_do %>
@@ -10,4 +37,4 @@
   </div>
 </div>
 
-<%= link_to 'New Task', new_task_path %>
+
