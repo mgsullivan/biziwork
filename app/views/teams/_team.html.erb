@@ -1,0 +1,29 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+  
+    <%= link_to edit_team_path(team) do%>
+    created <%=time_ago_in_words(team.created_at)%> ago 
+    <% end%>
+    <!--<i class='fa fa-trash-o'></i>-->
+    <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, team_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "pull-right" %>
+    </div>
+  <div class="panel-body">
+  Name:<%=team.name%>
+    
+  </div>
+  <div class="panel-footer">
+    <% if not team.users.includes(current_user.id) %>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <%= link_to "Request Membership", "#", class: "btn btn-info btn-md btn-block" %>
+    </div>
+    <% elsif team.admin_id == current_user.id %>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <%= link_to "Edit", "#", class: "btn btn-info btn-md btn-block" %>
+    </div>
+    <% else %>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <%= link_to "Leave Team", "#", class: "btn btn-info btn-md btn-block" %>
+    </div>
+    <% end%>
+  </div>
+</div>

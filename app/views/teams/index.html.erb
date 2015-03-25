@@ -1,0 +1,15 @@
+<div class="btn-group" role="group" aria-label="...">
+	<%= link_to 'New Team', new_team_path, class:  "btn btn-primary"%>	
+  
+ </div>
+<div class="row">
+  <div class="col-md-4"><h1 class="text-center">All Teams</h1>
+    <%= render @all_teams %>
+  </div>
+  <div class="col-md-4"><h1 class="text-center">I belong to...</h1>
+    <%= render @member_teams %>
+  </div>
+  <div class="col-md-4"><h1 class="text-center">I own...</h1>
+    <%= render @admin_teams %>
+  </div>
+</div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       put :change 
     end
   end
-  
+  resources :teams
 
   devise_for :users
   get 'pages/home'

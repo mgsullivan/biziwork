@@ -1,10 +1,12 @@
 class TeamsController < ApplicationController
-  #before_action :set_task, only: [:show, :edit, :update, :destroy, :change]
+  before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  respond_to :html
 
   def index
     @all_teams = Team.all
-    @my_teams = current_user.teams
+    @member_teams = current_user.teams
+    @admin_teams = Team.where(admin_id: current_user.id)
         
     respond_with(@teams)
   end
@@ -35,16 +37,10 @@ class TeamsController < ApplicationController
 
   def destroy
     @team.destroy
-    respond_with(@team)
+    respond_with(@teams)
   end
 
-  def change
-    @team.update_attributes(state: params[:state])
-    respond_to do |format|
-      format.html {redirect_to teams_path, notice: "Team updated"}
-    end
-  end
-
+  
   private
     def set_team
       @team = Team.find(params[:id])
@@ -54,3 +50,5 @@ class TeamsController < ApplicationController
       params.require(:team).permit(:id)
 
     end
+
+  end

@@ -1,0 +1,10 @@
+<%= simple_form_for(@team, html:{class: "form-signin"}) do |f| %>
+  <%= f.error_notification %>
+
+  
+    <%= f.input :name,label: false, required: true, input_html:{class: "form-control"}, placeholder:"Enter team name" %>
+
+    <%= f.button :submit, "Save" ,class: "btn btn-primary btn-block"  %>
+
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+<% end %>
