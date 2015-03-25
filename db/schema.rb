@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324003849) do
+ActiveRecord::Schema.define(version: 20150325004506) do
+
+  create_table "memberships", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "status",     default: "pending"
+  end
+
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", force: true do |t|
     t.text     "content"
@@ -22,6 +37,13 @@ ActiveRecord::Schema.define(version: 20150324003849) do
     t.text     "content_html"
     t.string   "project"
     t.text     "comments"
+    t.integer  "admin_id"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
