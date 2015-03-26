@@ -9,4 +9,5 @@ class Task < ActiveRecord::Base
 		link :target => "_blank", :rel => "nofollow"
 		simple_format
 	end 
+	belongs_to :project
 end

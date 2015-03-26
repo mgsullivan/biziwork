@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325205613) do
+ActiveRecord::Schema.define(version: 20150326011128) do
 
   create_table "memberships", force: true do |t|
     t.integer  "team_id"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20150325205613) do
     t.integer  "user_id"
     t.string   "state",        default: "to_do"
     t.text     "content_html"
-    t.string   "project"
     t.text     "comments"
+    t.integer  "project_id"
   end
 
   create_table "teams", force: true do |t|
