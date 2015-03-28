@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
 
 
 
-  private
+private
     def set_team
       @team = Team.find(params[:team_id])
     end
@@ -47,3 +47,4 @@ class ProjectsController < ApplicationController
       params.require(:id).permit(:team_id, :name)
 
     end
+end
