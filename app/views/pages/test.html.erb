@@ -1,17 +1,7 @@
-<div class="row">
-	<div class="col-md-4"><h1 class="text-center">Todo</h1>
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<h3 class="panel-title">Panel title</h3>
-			</div>
-			<div class="panel-body">
-				Panel content
-			</div>
-			<div class="panel-footer">
-				Panel footer
-			</div>
-		</div>
-	</div>
-	<div class="col-md-4"><h1 class="text-center">Doing</h1></div>
-	<div class="col-md-4"><h1 class="text-center">Done</h1></div>
-</div>
+
+<%= content_tag :a, "Modal", href: "#modal", class: 'btn', data: {toggle: 'modal'} %>
+
+<%= modal_dialog id: "modal",
+         header: { show_close: true, dismiss: 'modal', title: 'Modal header' },
+         body:   { content: 'This is the body' },
+         footer: { content: content_tag(:button, 'Save', class: 'btn') } %>
