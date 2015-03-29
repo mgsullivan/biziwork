@@ -2,12 +2,15 @@
 <script type="text/javascript"> $(function ()
     { $("#myModal").modal({show:false }); </script>
 </head>
-<%=render "tasks/form_modal" %>
+<%=render "tasks/new_task_modal" %>
+<%=render "projects/new_project_modal" %>
+<%=render "teams/new_team_modal" %>
+
 
 <div class="btn-group btn-group-justified" role="group" aria-label="...">
-	<%= link_to 'New Task', "#task_modal","data-toggle" => "modal", class:  "btn btn-primary"%>	
-  <%= link_to 'New Project', new_task_path, class:  "btn btn-primary"%>
-  <%= link_to 'New Team', new_task_path, class:  "btn btn-primary"%>
+	<%= link_to 'New Task', "#new_task_modal","data-toggle" => "modal", class:  "btn btn-primary"%>	
+  <%= link_to 'New Project', "#new_project_modal","data-toggle" => "modal", class:  "btn btn-primary"%>
+  <%= link_to 'New Team', "#new_team_modal","data-toggle" => "modal", class:  "btn btn-primary"%>
 
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

@@ -36,7 +36,7 @@ group :production do
 	gem 'rails_12factor'
 	 gem 'unicorn'
 	gem 'pg'
-	gem 'rack-timeout'
+	
 end
 
 # Use ActiveModel has_secure_password

@@ -1,17 +1,16 @@
+<%=render "tasks/view_task_modal", task: task %>
 
 <div class="panel panel-info">
   <div class="panel-heading">
   
-    <%= link_to edit_task_path(task) do%>
-    created <%=time_ago_in_words(task.created_at)%> ago 
-    <% end%>
+  <%= link_to task.summary, "#view_task_modal#{task.id}","data-toggle" => "modal"%> 
+    
     <!--<i class='fa fa-trash-o'></i>-->
     <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, task, method: :delete, data: { confirm: 'Are you sure?' }, class: "pull-right" %>
     </div>
   <div class="panel-body">
   Project:<%=task.project%>
-    <%= raw(task.content_html) %>
-  </div>
+   </div>
   <div class="panel-footer">
     <% if task.state == "doing" %>
     <div class="btn-group btn-group-justified" role="group" aria-label="...">

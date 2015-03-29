@@ -26,7 +26,9 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
     @task.save
-    respond_with(@task)
+    respond_to do |format|
+      format.html {redirect_to tasks_path, notice: "Task created"}
+    end
   end
 
   def update
@@ -36,7 +38,9 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    respond_with(@task)
+    respond_to do |format|
+      format.html {redirect_to tasks_path, notice: "Task deleted"}
+    end
   end
 
   def change
@@ -52,7 +56,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:content, :state, :project_id, :comments)
+      params.require(:task).permit(:content, :state, :project_id, :comments, :summary)
 
     end
 end

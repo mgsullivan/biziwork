@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     end
   end
   resources :teams
+  resources :projects
 
   devise_for :users
   get 'pages/home'

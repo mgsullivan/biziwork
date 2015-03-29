@@ -1,0 +1,31 @@
+
+<div class="modal fade" id=<%="view_task_modal#{task.id}" -%>>
+	<div class="modal-dialog bs-example-modal-sm">
+		<div class="panel panel-info">
+			<div class = "panel-heading">
+				<div class="modal-header text-center">
+
+					<button class="close" data-dismiss="modal">x</button>
+
+					<h2><%=task.summary %></h2>
+
+				</div>
+			</div>
+			<div class ="panel-body">
+				<div class="modal-body">
+				  	<p><b>Description</b></p>
+
+				    <%= task.content_html %>
+				    <% if task.project %>
+				    <b>Project:</b> <%= task.project.name%><br></p>
+				    <% end %>
+					<p><b>Comments</b></p>
+				    <%= task.comments %> 
+				</div>
+			</div>
+			<div class="modal-footer">
+				<%= link_to "Edit", edit_task_path(task) %>
+			</div>
+		</div>
+	</div>
+</div>
