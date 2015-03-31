@@ -1,7 +1,6 @@
 class Team < ActiveRecord::Base
-	has_many :memberships
-  	has_many :users, through: :memberships
-	has_many :projects
-	has_one :ownership
-	has_one :user, through: :ownership
+	has_many :memberships, dependent: :destroy
+  	has_many :projects, dependent: :nullify
+	has_one :ownership, dependent: :destroy
+	
 end

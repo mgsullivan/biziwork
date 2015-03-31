@@ -24,10 +24,13 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = current_user.Teams.new(team_params)
-    @team.admin = current_user.id
+    @team = current_user.teams.new(team_params)
+    o = current_user.ownerships.new(team:@team)
+    o.save
     @team.save
-    respond_with(@team)
+    respond_to do |format|
+      format.html {redirect_to tasks_path, notice: "Team created"}
+    end
   end
 
   def update
@@ -47,7 +50,7 @@ class TeamsController < ApplicationController
     end
 
     def team_params
-      params.require(:team).permit(:id)
+      params.require(:team).permit(:id, :name)
 
     end
 
