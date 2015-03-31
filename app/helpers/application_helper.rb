@@ -16,9 +16,13 @@ module ApplicationHelper
 	def team_list_for(user)
 		@list = Array.new
 		user.teams.each do |team|
-			@list.push(team.name)
+			@list.push(team)
 		end
-		return @list
+		user.ownerships.each do |ownership|
+			@list.push(ownership.team)
+		end
+
+		return @list.uniq
 	end
 	def project_list_for(user)
 		@list = Array.new
