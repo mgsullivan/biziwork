@@ -1,10 +1,9 @@
 class ProjectsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy, :change]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :change]
   before_action :authenticate_user!
 
   def index
     @all_projects = Project.all
-        
     respond_with(@projects)
   end
 
@@ -21,9 +20,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = @team.new(project_params)
+    @project = Project.new(project_params)
     @project.save
-    respond_with(@project)
+    respond_to do |format|
+      format.html {redirect_to tasks_path, notice: "Project created"}
+    end
   end
 
   def update
@@ -38,13 +39,15 @@ class ProjectsController < ApplicationController
 
 
 
-private
+  private
     def set_team
       @team = Team.find(params[:team_id])
     end
+    def set_project
+      @project = Project.find(params[:id])
+    end
 
     def project_params
-      params.require(:id).permit(:team_id, :name)
-
+      params.require(:project).permit(:team_id, :name)
     end
 end

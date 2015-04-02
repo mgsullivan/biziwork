@@ -3,6 +3,14 @@ class MembershipsController < ApplicationController
 	def destroy
 		@membership.destroy
 	end
+	def approve
+		@membership.status = "approved"
+		@membership.save
+	end
+	def promote
+		@membership.team.ownership.user = @membership.user
+		@membership.destroy
+	end
 
 private
 	def set_membership
