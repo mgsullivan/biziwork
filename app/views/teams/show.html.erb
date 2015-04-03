@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+	<h2 class = "text-center"><%= @team.name%></h3>
+	<p>Owner:<%=@team.ownership.user.email%></p> 
+	<div class="row">
+		<div class="col-md-4">
+			<div class = "panel panel-info">
+				<div class = "panel-heading">
+					<h3 class = "text-left">Projects</h3>
+				</div>
+				<div class = "panel-body">
+					<table class = "table">
+						<thead>
+							<tr>
+								<td>Name</td><td>Action</td>
+							</tr>
+						</thead>
+						<tbody>
+							<% @@projects.each do |project|%>
+								<tr>
+									<td><%= project.name %></td>
+									<td><%= raw(project_actions_for(project, current_user)) %></td>
+								</tr>
+							<%end%>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class = "panel panel-info">
+				<div class = "panel-heading">
+					<h3 class = "text-left">Members</h3>
+				</div>
+				<div class = "panel-body">
+					<table class = "table">
+						<thead>
+							<tr>
+								<td>Name</td><td>Action</td>
+							</tr>
+						</thead>
+						<tbody>
+							<% @members.each do |member|%>
+								<tr>
+									<td><%= member.user.email %></td>
+									<td><%= raw(member_actions_for(membership, current_user)) %></td>
+								</tr>
+							<%end%>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class = "panel panel-info">
+				<div class = "panel-heading">
+					<h3 class = "text-left">Requests</h3>
+				</div>
+				<div class = "panel-body">
+					<table class = "table">
+						<thead>
+							<tr>
+								<td>Name</td><td>Action</td>
+							</tr>
+						</thead>
+						<tbody>
+							<% @requests.each do |request|%>
+								<tr>
+									<td><%= request.user.email %></td>
+									<td><%= raw(member_actions_for(membership, current_user))  %></td>
+								</tr>
+							<%end%>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

@@ -30,6 +30,20 @@ module ProjectsHelper
 
 		return @list.uniq
 	end
+	def project_actions_for(project,user)
+		@actions = ""
+		case team_relationship_for(project.team,user)
+			when "owner"
+				@actions += link_to("manage",project_path(project))
+			when "member"
+				@actions += link_to("quit","#")
+			else
+				@actions += ""
+		end
+		
+		return @actions
+
+	end
 	
 
 end

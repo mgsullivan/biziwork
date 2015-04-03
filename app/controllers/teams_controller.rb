@@ -12,7 +12,9 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @open_requests = @team.memberships.where(status: "pending")
+    @projects = @team.projects
+    @members = @team.memberships.where(status:"active")
+    @requests = @team.memberships.where(status: "pending")
     respond_with(@team)
   end
 

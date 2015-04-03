@@ -14,25 +14,12 @@
 							</tr>
 						</thead>
 						<tbody>
-
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-		<div class = "col-md-4">
-			<div class = "panel panel-info">
-				<div class = "panel-heading">
-					<h3 class = "text-left">Member</h3>
-				</div>
-				<div class = "panel-body">
-					<table class = "table">
-						<thead>
-							<tr>
-								<td>Name</td><td>Action</td>
-							</tr>
-						</thead>
-						<tbody>
+							<% @all_teams.each do |team|%>
+								<tr>
+									<td><%= team.name %></td>
+									<td><%= raw(team_actions_for(team, current_user)) %></td>
+								</tr>
+							<%end%>
 
 						</tbody>
 					</table>
@@ -52,7 +39,37 @@
 							</tr>
 						</thead>
 						<tbody>
+							<% @owned_teams.each do |team|%>
+								<tr>
+									<td><%= team.name %></td>
+									<td><%= raw(team_actions_for(team, current_user)) %></td>
+								</tr>
+							<%end%>
 
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class = "col-md-4">
+			<div class = "panel panel-info">
+				<div class = "panel-heading">
+					<h3 class = "text-left">Member</h3>
+				</div>
+				<div class = "panel-body">
+					<table class = "table">
+						<thead>
+							<tr>
+								<td>Name</td><td>Action</td>
+							</tr>
+						</thead>
+						<tbody>
+							<% @member_of_teams.each do |team|%>
+								<tr>
+									<td><%= team.name %></td>
+									<td><%= raw(team_actions_for(team, current_user)) %></td>
+								</tr>
+							<%end%>
 						</tbody>
 					</table>
 				</div>

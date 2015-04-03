@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
   has_many :teams, through: :memberships
   has_many :owned_teams, through: :ownerships, class_name: "Team", foreign_key: "team_id"
+  
 end
