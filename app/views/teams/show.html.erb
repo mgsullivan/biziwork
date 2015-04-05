@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 	<h2 class = "text-center"><%= @team.name%></h3>
-	<p>Owner:<%=@team.ownership.user.email%></p> 
+	<p class = "text-center">Owner:<%=@team.ownership.user.email%><br><%= link_to 'Edit', edit_team_path(@team) %></p> 
 	<div class="row">
 		<div class="col-md-4">
 			<div class = "panel panel-info">
@@ -16,7 +16,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<% @@projects.each do |project|%>
+							<% @projects.each do |project|%>
 								<tr>
 									<td><%= project.name %></td>
 									<td><%= raw(project_actions_for(project, current_user)) %></td>
@@ -80,5 +80,4 @@
 		</div>
 	</div>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+

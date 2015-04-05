@@ -16,7 +16,7 @@
 						<tbody>
 							<% @all_teams.each do |team|%>
 								<tr>
-									<td><%= team.name %></td>
+									<td><%= link_to team.name, team_path(team) %></td>
 									<td><%= raw(team_actions_for(team, current_user)) %></td>
 								</tr>
 							<%end%>
@@ -41,7 +41,7 @@
 						<tbody>
 							<% @owned_teams.each do |team|%>
 								<tr>
-									<td><%= team.name %></td>
+									<td><%= link_to team.name, team_path(team) %></td>
 									<td><%= raw(team_actions_for(team, current_user)) %></td>
 								</tr>
 							<%end%>
@@ -66,7 +66,7 @@
 						<tbody>
 							<% @member_of_teams.each do |team|%>
 								<tr>
-									<td><%= team.name %></td>
+									<td><%= link_to team.name, team_path(team) %></td>
 									<td><%= raw(team_actions_for(team, current_user)) %></td>
 								</tr>
 							<%end%>

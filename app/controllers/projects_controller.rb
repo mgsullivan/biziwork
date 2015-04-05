@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :change]
   before_action :authenticate_user!
+  respond_to :html
+
 
   def index
     @all_projects = Project.all
