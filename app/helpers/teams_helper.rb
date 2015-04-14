@@ -42,7 +42,7 @@ module TeamsHelper
 			when "pending"
 				@actions += link_to("cancel request", membership_path(team.memberships.where(user: user).first), method: :delete)
 			when "none"
-				@actions += link_to("join",new_membership_path(user:user,team:team))
+				@actions += link_to("join", memberships_path(user:user,team:team),method: :post)
 			else
 				@actions += ""
 		end

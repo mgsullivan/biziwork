@@ -21,6 +21,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    respond_with(@task)
   end
 
   def create
