@@ -22,6 +22,7 @@ class MembershipsController < ApplicationController
     	respond_with(@membership)
   	end
   	def create
+  		session[:return_to] ||= request.referer
   		unless Membership.where(team: membership.team, user: membership.user).size >0
   			membership.save
   		end
