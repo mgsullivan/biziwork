@@ -16,7 +16,11 @@
 						<tbody>
 							<% @all_teams.each do |team|%>
 								<tr>
+<<<<<<< HEAD
 									<td><%= link_to team.name team_path(team) %></td>
+=======
+									<td><%= link_to team.name, team_path(team) %></td>
+>>>>>>> 0e470ac967b6455507019380225358a1af8e380a
 									<td><%= raw(team_actions_for(team, current_user)) %></td>
 								</tr>
 							<%end%>
@@ -41,7 +45,11 @@
 						<tbody>
 							<% @owned_teams.each do |team|%>
 								<tr>
+<<<<<<< HEAD
 									<td><%= link_to team.name team_path(team) %></td>
+=======
+									<td><%= link_to team.name, team_path(team) %></td>
+>>>>>>> 0e470ac967b6455507019380225358a1af8e380a
 									<td><%= raw(team_actions_for(team, current_user)) %></td>
 								</tr>
 							<%end%>
@@ -66,7 +74,11 @@
 						<tbody>
 							<% @member_of_teams.each do |team|%>
 								<tr>
+<<<<<<< HEAD
 									<td><%= link_to team.name team_path(team) %></td>
+=======
+									<td><%= link_to team.name, team_path(team) %></td>
+>>>>>>> 0e470ac967b6455507019380225358a1af8e380a
 									<td><%= raw(team_actions_for(team, current_user)) %></td>
 								</tr>
 							<%end%>
